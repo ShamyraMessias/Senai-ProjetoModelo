@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -67,7 +68,9 @@
             this.label19 = new System.Windows.Forms.Label();
             this.txtEnderecoCep = new System.Windows.Forms.MaskedTextBox();
             this.btnPesquisarCep = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -115,6 +118,7 @@
             this.txtNome.Size = new System.Drawing.Size(217, 27);
             this.txtNome.TabIndex = 4;
             this.txtNome.Tag = "Obrigatorio";
+            this.txtNome.Validating += new System.ComponentModel.CancelEventHandler(this.txtNome_Validating);
             // 
             // label3
             // 
@@ -151,6 +155,7 @@
             this.txtCpf.Size = new System.Drawing.Size(130, 27);
             this.txtCpf.TabIndex = 8;
             this.txtCpf.Tag = "Obrigatorio";
+            this.txtCpf.Validating += new System.ComponentModel.CancelEventHandler(this.txtCpf_Validating);
             // 
             // txtDataNascimento
             // 
@@ -177,6 +182,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(217, 27);
             this.txtEmail.TabIndex = 11;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // label7
             // 
@@ -416,6 +422,10 @@
             this.btnPesquisarCep.UseVisualStyleBackColor = true;
             this.btnPesquisarCep.Click += new System.EventHandler(this.btnPesquisarCep_Click);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // frmCadastroFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -467,6 +477,7 @@
             this.Text = "frmCadastroFuncionario";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -513,5 +524,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.MaskedTextBox txtEnderecoCep;
         private System.Windows.Forms.Button btnPesquisarCep;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
