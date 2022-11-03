@@ -182,7 +182,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(217, 27);
             this.txtEmail.TabIndex = 11;
-            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // label7
             // 
@@ -475,6 +474,7 @@
             this.Name = "frmCadastroFuncionario";
             this.Tag = "";
             this.Text = "frmCadastroFuncionario";
+            this.Load += new System.EventHandler(this.frmCadastroFuncionario_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();

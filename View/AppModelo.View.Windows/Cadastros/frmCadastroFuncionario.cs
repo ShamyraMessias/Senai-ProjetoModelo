@@ -1,20 +1,29 @@
-﻿using AppModelo.Controller.External;
+﻿using AppModelo.Controller.Cadastros;
+using AppModelo.Controller.External;
 using AppModelo.Model.Domain.Validators;
 using AppModelo.View.Windows.Helpers;
 using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace AppModelo.View.Windows.Cadastros
 {
     public partial class frmCadastroFuncionario : Form
     {
+        private NacionalidadeController _nacionalidadeController = new NacionalidadeController();
+
         public frmCadastroFuncionario()
         {
             InitializeComponent();
             Componentes.FormatarCamposObrigatorios(this);
+            cmbNacionalidade.DataSource = _nacionalidadeController.ObterTodasNacionalidades();
+            cmbNacionalidade.DisplayMember = "Descricao";
+
         }
 
-        private void btnPesquisarCep_Click(object sender, System.EventArgs e)
+
+
+        private void btnPesquisarCep_Click(object sender, EventArgs e)
         {
             //Crio a instancia do Controllador
             var cepController = new ViaCepController();
@@ -28,31 +37,38 @@ namespace AppModelo.View.Windows.Cadastros
             txtEnderecoUf.Text = endereco.Uf;
         }
 
-        private void txtNome_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void txtNome_Validating(object sender, CancelEventArgs e)
         {
+            //primeira regra nome < que 6 letras
             if(txtNome.Text.Length < 6)
             {
-                errorProvider.SetError(txtNome, "Digite seu nome completo");
+                errorProvider.SetError(txtNome,"Digite seu nome completo");
                 return;
             }
-            
-            foreach(var letra in txtNome.Text)
+
+            //verifica se digitou algum numero
+
+            //SomenteLetras();
+            //VerificarSeExisteNumeroNoTexto();
+
+            foreach (var letra in txtNome.Text)
             {
-                if(char.IsNumber(letra))
+                if (char.IsNumber(letra))
                 {
-                    errorProvider.SetError(txtNome, "Seu nome parece estar errado");
+                    errorProvider
+                        .SetError(txtNome, "Seu nome parece estar errado");
                     return;
                 }
-                errorProvider.Clear();
             }
+            errorProvider.Clear();
 
+           
         }
 
-        private void txtCpf_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void txtCpf_Validating(object sender, CancelEventArgs e)
         {
             var cpf = txtCpf.Text;
             var cpfEhValido = Validadores.ValidarCPF(cpf);
-           
             if(cpfEhValido is false)
             {
                 errorProvider.SetError(txtCpf, "CPF Inválido");
@@ -61,13 +77,9 @@ namespace AppModelo.View.Windows.Cadastros
             errorProvider.Clear();
         }
 
-        private void txtEmail_TextChanged(object sender, EventArgs e)
+        private void frmCadastroFuncionario_Load(object sender, EventArgs e)
         {
 
         }
-
-
-        // DATA DE NASCIMENTO
-        DateTime.Now.AddDays(1);
     }
 }
