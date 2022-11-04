@@ -17,7 +17,7 @@ namespace AppModelo.View.Windows.Cadastros
             InitializeComponent();
             Componentes.FormatarCamposObrigatorios(this);
             cmbNacionalidade.DataSource = _nacionalidadeController.ObterTodasNacionalidades();
-            cmbNacionalidade.DisplayMember = "Descricao";
+            cmbNacionalidade.DisplayMember = "Descrição";
 
         }
 
