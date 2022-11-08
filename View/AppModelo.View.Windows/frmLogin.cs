@@ -42,5 +42,11 @@ namespace AppModelo.View.Windows
             var form = new frmRecuperarSenha();
             form.Show();
         }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            txtEmail.Text = "admin@admin.com";
+            txtSenha.Text = "admin";
+        }
     }
 }

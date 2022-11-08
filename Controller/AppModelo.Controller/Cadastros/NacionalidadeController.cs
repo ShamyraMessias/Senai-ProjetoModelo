@@ -8,7 +8,7 @@ namespace AppModelo.Controller.Cadastros
     {
         public bool Cadastrar(string descricao)
         {
-            var repositor io = new NacionalidadeRepository();
+            var repositorio = new NacionalidadeRepository();
             var resposta = repositorio.Inserir(descricao);
             return resposta;
         }

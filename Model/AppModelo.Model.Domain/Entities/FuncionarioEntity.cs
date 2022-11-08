@@ -9,22 +9,21 @@ namespace AppModelo.Model.Domain.Entities
     public class FuncionarioEntity
     {
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public string data_de_nascimento { get; set; }
+        public string Nome_Completo { get; set; }
+        public DateTime Data_Nascimento { get; set; }
         public bool Sexo { get; set; }
-        public string cpf { get; set; }
-        public int id_nacionalidade { get; set; }
-        public int id_naturalidade { get; set; }
-        public string email { get; set; }
-        public string telefone { get; set; }
-        public string telefone_contato { get; set; }
-        public string cep { get; set; }
-        public string logradouro { get; set; }
-        public int numero { get; set; }
-        public string complemento { get; set; }
-        public string bairro { get; set; }
-        public string municipio { get; set; }
-        public string uf { get; set; }
-
+        public string Cpf { get; set; }
+        public string Nacionalidade { get; set; }
+        public string Naturalidade { get; set; }
+        public string Email { get; set; }
+        public string Telefone { get; set; }
+        public string Telefone_Contato { get; set; }
+        public string Cep { get; set; }
+        public string Logradouro { get; set; }
+        public int Numero { get; set; }
+        public string Complemento { get; set; }
+        public string Bairro { get; set; }
+        public string Municipio { get; set; }
+        public string Uf { get; set; }
     }
 }

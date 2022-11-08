@@ -29,6 +29,9 @@ namespace AppModelo.View.Windows.Cadastros
 
             var resposta = controller.Cadastrar(descricaoMaiuscula, chkStatus.Checked);
 
+            var dataSource = controller.ObterTodasNaturalidades();
+            gvNaturalidade.DataSource = dataSource;
+
         }
 
         private void frmNaturalidade_Load(object sender, EventArgs e)

@@ -32,5 +32,12 @@ namespace AppModelo.View.Windows
             form.Show();
 
         }
+
+        private void funcionariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new frmCadastroFuncionario();
+            form.MdiParent = this;
+            form.Show();
+        }
     }
 }

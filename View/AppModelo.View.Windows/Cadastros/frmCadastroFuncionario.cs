@@ -10,14 +10,20 @@ namespace AppModelo.View.Windows.Cadastros
 {
     public partial class frmCadastroFuncionario : Form
     {
+        private FuncionarioController _funcionarioController = new FuncionarioController();
         private NacionalidadeController _nacionalidadeController = new NacionalidadeController();
+        private NaturalidadeController _naturalidadeController = new NaturalidadeController();
 
         public frmCadastroFuncionario()
         {
             InitializeComponent();
             Componentes.FormatarCamposObrigatorios(this);
+
             cmbNacionalidade.DataSource = _nacionalidadeController.ObterTodasNacionalidades();
-            cmbNacionalidade.DisplayMember = "Descrição";
+            cmbNacionalidade.DisplayMember = "Descricao";
+
+            cmbNaturalidade.DataSource = _naturalidadeController.ObterTodasNaturalidades();
+            cmbNaturalidade.DisplayMember = "Descricao";
 
         }
 
@@ -80,6 +86,111 @@ namespace AppModelo.View.Windows.Cadastros
         private void frmCadastroFuncionario_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            {
+                var dataNascimento = Convert.ToDateTime(txtDataNascimento.Text);
+                int numero = int.Parse(txtEnderecoNumero.Text);
+                var obterIndexNacionalidade = cmbNacionalidade.SelectedIndex;
+                var obterIndexNaturalidade = cmbNaturalidade.SelectedIndex;
+
+                var salvou = _funcionarioController.Cadastrar(txtNome.Text, dataNascimento, rbMasculino.Checked,
+                    txtEmail.Text, txtTelefone.Text, txtTelefoneContato.Text, txtEnderecoCep.Text, txtEnderecoLogradouro.Text,
+                    numero, txtEnderecoComplemento.Text, txtEnderecoBairro.Text, txtEnderecoMunicipio.Text, txtEnderecoUf.Text,
+                    obterIndexNacionalidade, obterIndexNaturalidade);
+
+                if (salvou)
+                {
+                    MessageBox.Show("Cadastrado com sucesso");
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao cadastrar usuário");
+                }
+
+                limparDados(this);
+
+             }
+        }
+
+        private void cmbNacionalidade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var obterIndexNacionalidade = cmbNacionalidade.SelectedIndex;
+            string Index = cmbNacionalidade.Text;   
+            MessageBox.Show(Index);
+        }
+
+        private void cmbNaturalidade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var obterIndexNaturalidade = cmbNaturalidade.SelectedIndex;
+            string Index = cmbNaturalidade.Text;
+            MessageBox.Show(Index);
+        }
+
+        public static void limparDados(Control ctrl)
+        {
+            foreach (Control c in ctrl.Controls)
+            {
+                if (c is TextBox)
+                {
+                    ((TextBox)c).Text = "";
+                }
+                else if (c is RichTextBox)
+                {
+                    ((RichTextBox)c).Text = "";
+                }
+                else if (c is ComboBox)
+                {
+                    ((ComboBox)c).SelectedIndex = -1;
+                }
+                else if (c is CheckBox)
+                {
+                    ((CheckBox)c).Checked = false;
+                }
+                else if (c is RadioButton)
+                {
+                    ((RadioButton)c).Checked = false;
+                }
+                else if (c is DateTimePicker)
+                {
+                    ((DateTimePicker)c).MinDate = new DateTime(1900, 1, 1);
+                    ((DateTimePicker)c).MaxDate = new DateTime(2100, 1, 1);
+                    ((DateTimePicker)c).Value = DateTime.Now.Date < ((DateTimePicker)c).MinDate ? ((DateTimePicker)c).MinDate : DateTime.Now.Date > ((DateTimePicker)c).MaxDate ? ((DateTimePicker)c).MaxDate : DateTime.Now.Date;
+                    if (((DateTimePicker)c).ShowCheckBox)
+                        ((DateTimePicker)c).Checked = false;
+                }
+                else if (c is NumericUpDown)
+                {
+                    ((NumericUpDown)c).Value = 0 < ((NumericUpDown)c).Minimum ? ((NumericUpDown)c).Minimum : 0 > ((NumericUpDown)c).Maximum ? ((NumericUpDown)c).Maximum : 0;// ((NumericUpDown)c).Minimum;
+                }
+                else if (c is PictureBox)
+                {
+                    ((PictureBox)c).Image = null;
+                }
+                else if (c is MaskedTextBox)
+                {
+                    ((MaskedTextBox)c).Text = "";
+                }
+                else if (c is Label)
+                {
+                    //((Label)c).Text = "";
+                }
+                else if (c is DataGridView)
+                {
+                    ((DataGridView)c).DataSource = null;
+                }
+                else if (c is TrackBar)
+                    ((TrackBar)c).Value = ((TrackBar)c).Minimum;
+                else if (c.HasChildren)
+                {
+                    if (c is TabControl)
+                        ((TabControl)c).SelectedIndex = 0;
+
+                    limparDados(c);
+                }
+            }
         }
     }
 }
