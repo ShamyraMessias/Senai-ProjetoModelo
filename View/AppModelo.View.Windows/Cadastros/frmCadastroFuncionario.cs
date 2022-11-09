@@ -90,29 +90,7 @@ namespace AppModelo.View.Windows.Cadastros
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            {
-                var dataNascimento = Convert.ToDateTime(txtDataNascimento.Text);
-                int numero = int.Parse(txtEnderecoNumero.Text);
-                var obterIndexNacionalidade = cmbNacionalidade.SelectedIndex;
-                var obterIndexNaturalidade = cmbNaturalidade.SelectedIndex;
 
-                var salvou = _funcionarioController.Cadastrar(txtNome.Text, dataNascimento, rbMasculino.Checked,
-                    txtEmail.Text, txtTelefone.Text, txtTelefoneContato.Text, txtEnderecoCep.Text, txtEnderecoLogradouro.Text,
-                    numero, txtEnderecoComplemento.Text, txtEnderecoBairro.Text, txtEnderecoMunicipio.Text, txtEnderecoUf.Text,
-                    obterIndexNacionalidade, obterIndexNaturalidade);
-
-                if (salvou)
-                {
-                    MessageBox.Show("Cadastrado com sucesso");
-                }
-                else
-                {
-                    MessageBox.Show("Erro ao cadastrar usuário");
-                }
-
-                limparDados(this);
-
-             }
         }
 
         private void cmbNacionalidade_SelectedIndexChanged(object sender, EventArgs e)
@@ -192,5 +170,59 @@ namespace AppModelo.View.Windows.Cadastros
                 }
             }
         }
+
+        private void txtEnderecoLogradouro_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        {
+            var email = txtEmail.Text;  
+            var emailEhvalido = Validadores.EmailEValido(email);
+
+            if (emailEhvalido is false)
+            {
+                errorProvider.SetError(txtEmail, "E-mail inválido!");
+                return;
+
+            }
+
+            errorProvider.Clear();
+        }
+
+        private void txtDataNascimento_validated(object sender, EventArgs e)
+        {
+            var dataNascimento = Convert.ToDateTime (txtDataNascimento.Text);
+            var dataHoje = DateTime.Now;
+
+            if (dataNascimento > dataHoje)
+            {
+                errorProvider.SetError(txtDataNascimento, "Você não pode informar a data de hoje!");
+                return;
+            }
+
+            errorProvider.Clear();
+        }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            var dataNascimento = Convert.ToDateTime(txtDataNascimento.Text);
+            int numero = int.Parse(txtEnderecoNumero.Text);
+
+            var salvou = _funcionarioController.Cadastrar(txtNome.Text, dataNascimento, rbMasculino.Checked, txtEmail.Text, txtTelefone.Text, txtTelefoneContato.Text, txtEnderecoCep.Text, txtEnderecoLogradouro.Text, numero, txtEnderecoComplemento.Text, txtEnderecoBairro.Text, txtEnderecoMunicipio.Text, txtEnderecoUf.Text, 1, 1);
+
+            if ((bool)salvou)
+            {
+                MessageBox.Show("Cadastrado com sucesso");
+            }
+            else
+            {
+                MessageBox.Show("Erro ao cadastrar usuário");
+            }
+        }
     }
 }
+
+        
+   

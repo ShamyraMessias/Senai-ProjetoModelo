@@ -69,7 +69,7 @@
             this.txtEnderecoCep = new System.Windows.Forms.MaskedTextBox();
             this.btnPesquisarCep = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.SaveButton = new System.Windows.Forms.Button();
+            this.btnCadastrar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -167,6 +167,7 @@
             this.txtDataNascimento.TabIndex = 9;
             this.txtDataNascimento.Tag = "Obrigatorio";
             this.txtDataNascimento.ValidatingType = typeof(System.DateTime);
+            this.txtDataNascimento.Validated += new System.EventHandler(this.txtDataNascimento_validated);
             // 
             // label6
             // 
@@ -183,6 +184,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(217, 27);
             this.txtEmail.TabIndex = 11;
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // label7
             // 
@@ -226,6 +228,7 @@
             this.txtEnderecoLogradouro.Name = "txtEnderecoLogradouro";
             this.txtEnderecoLogradouro.Size = new System.Drawing.Size(318, 27);
             this.txtEnderecoLogradouro.TabIndex = 17;
+            this.txtEnderecoLogradouro.TextChanged += new System.EventHandler(this.txtEnderecoLogradouro_TextChanged);
             // 
             // label10
             // 
@@ -428,15 +431,14 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // SaveButton
+            // btnCadastrar
             // 
-            this.SaveButton.Location = new System.Drawing.Point(640, 475);
-            this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(115, 36);
-            this.SaveButton.TabIndex = 39;
-            this.SaveButton.Text = "Salvar";
-            this.SaveButton.UseVisualStyleBackColor = true;
-            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            this.btnCadastrar.Location = new System.Drawing.Point(640, 467);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(115, 36);
+            this.btnCadastrar.TabIndex = 39;
+            this.btnCadastrar.Text = "CADASTRAR";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
             // 
             // frmCadastroFuncionario
             // 
@@ -444,7 +446,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(774, 523);
-            this.Controls.Add(this.SaveButton);
+            this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.btnPesquisarCep);
             this.Controls.Add(this.txtEnderecoCep);
             this.Controls.Add(this.txtTelefoneContato);
@@ -539,6 +541,6 @@
         private System.Windows.Forms.MaskedTextBox txtEnderecoCep;
         private System.Windows.Forms.Button btnPesquisarCep;
         private System.Windows.Forms.ErrorProvider errorProvider;
-        private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Button btnCadastrar;
     }
 }

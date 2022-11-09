@@ -11,7 +11,7 @@ namespace AppModelo.Controller.Cadastros
             var repositorio = new NaturalidadeRepository();
 
             var naturalidade = repositorio.ObterPorDescricao(descricao);
-            if(naturalidade is not null) return false;
+            if (naturalidade is not null) return false;
 
             var resposta = repositorio.Inserir(descricao, status);
             return resposta;
