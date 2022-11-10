@@ -13,6 +13,7 @@ namespace AppModelo.View.Windows.Cadastros
         private FuncionarioController _funcionarioController = new FuncionarioController();
         private NacionalidadeController _nacionalidadeController = new NacionalidadeController();
         private NaturalidadeController _naturalidadeController = new NaturalidadeController();
+        private object sexo;
 
         public frmCadastroFuncionario()
         {
@@ -207,10 +208,15 @@ namespace AppModelo.View.Windows.Cadastros
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btnCadastrar_Click_1(object sender, EventArgs e)
+        {
             var dataNascimento = Convert.ToDateTime(txtDataNascimento.Text);
             int numero = int.Parse(txtEnderecoNumero.Text);
 
-            var salvou = _funcionarioController.Cadastrar(txtNome.Text, dataNascimento, rbMasculino.Checked, txtEmail.Text, txtTelefone.Text, txtTelefoneContato.Text, txtEnderecoCep.Text, txtEnderecoLogradouro.Text, numero, txtEnderecoComplemento.Text, txtEnderecoBairro.Text, txtEnderecoMunicipio.Text, txtEnderecoUf.Text, 1, 1);
+            var salvou = _funcionarioController.Cadastrar (txtNome.Text, dataNascimento, rbMasculino.Checked, txtEmail.Text, txtTelefone.Text, txtTelefoneContato.Text, txtEnderecoCep.Text, txtEnderecoLogradouro.Text, numero, txtEnderecoComplemento.Text, txtEnderecoBairro.Text, txtEnderecoMunicipio.Text, txtEnderecoUf.Text, 1, 1);
 
             if ((bool)salvou)
             {

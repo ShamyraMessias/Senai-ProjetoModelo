@@ -59,7 +59,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.rbMasculino = new System.Windows.Forms.RadioButton();
             this.rbFeminino = new System.Windows.Forms.RadioButton();
-            this.label16 = new System.Windows.Forms.Label();
+            this.lblSexo = new System.Windows.Forms.Label();
             this.cmbNacionalidade = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -345,14 +345,14 @@
             this.rbFeminino.Text = "Feminino";
             this.rbFeminino.UseVisualStyleBackColor = true;
             // 
-            // label16
+            // lblSexo
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(502, 110);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(41, 20);
-            this.label16.TabIndex = 30;
-            this.label16.Text = "Sexo";
+            this.lblSexo.AutoSize = true;
+            this.lblSexo.Location = new System.Drawing.Point(502, 110);
+            this.lblSexo.Name = "lblSexo";
+            this.lblSexo.Size = new System.Drawing.Size(41, 20);
+            this.lblSexo.TabIndex = 30;
+            this.lblSexo.Text = "Sexo";
             // 
             // cmbNacionalidade
             // 
@@ -439,6 +439,7 @@
             this.btnCadastrar.TabIndex = 39;
             this.btnCadastrar.Text = "CADASTRAR";
             this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click_1);
             // 
             // frmCadastroFuncionario
             // 
@@ -455,7 +456,7 @@
             this.Controls.Add(this.cmbNaturalidade);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.cmbNacionalidade);
-            this.Controls.Add(this.label16);
+            this.Controls.Add(this.lblSexo);
             this.Controls.Add(this.rbFeminino);
             this.Controls.Add(this.rbMasculino);
             this.Controls.Add(this.txtEnderecoUf);
@@ -531,7 +532,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.RadioButton rbMasculino;
         private System.Windows.Forms.RadioButton rbFeminino;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblSexo;
         private System.Windows.Forms.ComboBox cmbNacionalidade;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;

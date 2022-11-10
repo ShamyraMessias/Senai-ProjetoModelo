@@ -11,11 +11,11 @@ namespace AppModelo.Model.Infra.Repositories
 {
     public class FuncionariosRepository
     {
-        public bool Inserir(string nome, DateTime dataNascimento, bool sexo, string email, string telefone, string telefone_contato, string cep, string logradouro, int numero, string complemento, string bairro, string municipio, string uf, int nacionalidade, int naturalidade)
+        public bool Inserir(string nome, DateTime dataNascimento, bool sexo, string email, string telefone, string telefone_contato, string cep, string logradouro, int numero, string complemento, string bairro, string municipio, string uf, int nacionalidades, int naturalidade)
         {
             var dataConvertida = dataNascimento.ToString("yyyy-MM-dd");
 
-            var sql = $"INSERT INTO funcionarios (nome, data_nascimento, genero, email, telefone, telefone_contato, cep, logradouro, numero, complemento, bairro, municipio, uf, id_nacionalidade, id_naturalidade) VALUES ('{nome}', '{dataConvertida}', {sexo}, '{email}', '{telefone}', '{telefone_contato}', '{cep}', '{logradouro}', {numero}, '{complemento}', '{bairro}', '{municipio}', '{uf}', {nacionalidade}, {naturalidade})";
+            var sql = $"INSERT INTO funcionarios (nome, dataNascimento, sexo, email, telefone, telefone_contato, cep, logradouro, numero, complemento, bairro, municipio, uf,nacionalidades, naturalidade) VALUES ('{nome}', '{dataConvertida}', {sexo}, '{email}', '{telefone}', '{telefone_contato}', '{cep}', '{logradouro}', {numero}, '{complemento}', '{bairro}', '{municipio}', '{uf}', {nacionalidades}, {naturalidade})";
             using IDbConnection conexaoBd = new MySqlConnection(Databases.MySql.ConectionString());
             var resultado = conexaoBd.Execute(sql);
 

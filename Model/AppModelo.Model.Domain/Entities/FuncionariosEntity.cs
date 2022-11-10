@@ -9,11 +9,11 @@ namespace AppModelo.Model.Domain.Entities
     internal class FuncionariosEntity
     {
         public int Id { get; set; }
-        public int id_naturalidade { get; set; }
-        public int id_nacionalidade { get; set; }
+        public int naturalidade { get; set; }
+        public int nacionalidades { get; set; }
         public String nome { get; set; }
         public DateTime data_nascimento { get; set; }
-        public int genero { get; set; }
+        public bool sexo { get; set; }
         public String cpf { get; set; }
         public String email { get; set; }
         public String telefone { get; set; }
