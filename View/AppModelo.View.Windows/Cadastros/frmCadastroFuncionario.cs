@@ -213,7 +213,7 @@ namespace AppModelo.View.Windows.Cadastros
 
         private void btnCadastrar_Click_1(object sender, EventArgs e)
         {
-            var dataNascimento = Convert.ToDateTime(txtDataNascimento.Text);
+            DateTime dataNascimento = Convert.ToDateTime(txtDataNascimento.Text);
             int numero = int.Parse(txtEnderecoNumero.Text);
 
             var salvou = _funcionarioController.Cadastrar (txtNome.Text, dataNascimento, rbMasculino.Checked, txtEmail.Text, txtTelefone.Text, txtTelefoneContato.Text, txtEnderecoCep.Text, txtEnderecoLogradouro.Text, numero, txtEnderecoComplemento.Text, txtEnderecoBairro.Text, txtEnderecoMunicipio.Text, txtEnderecoUf.Text, 1, 1);

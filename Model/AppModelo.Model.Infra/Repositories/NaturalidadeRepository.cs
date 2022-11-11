@@ -14,7 +14,7 @@ namespace AppModelo.Model.Infra.Repositories
             var agora = DateTime.Now.ToString("u");
 
             var sql = $"INSERT INTO naturalidade " +
-                    $"(descricao, dataCriacao, dataAlteracao, ativo) " +
+                    $"(descricao, data_Criacao, data_Alteracao, ativo) " +
                     $"VALUES " +
                     $"('{descricao}','{agora}','{agora}', {status})";
             using IDbConnection conexaoBd = new MySqlConnection(Databases.MySql.ConectionString());
