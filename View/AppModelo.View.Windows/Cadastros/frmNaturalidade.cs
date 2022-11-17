@@ -41,5 +41,21 @@ namespace AppModelo.View.Windows.Cadastros
             gvNaturalidade.DataSource = dataSource;
 
         }
+
+        
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var control = new NacionalidadeController();
+            var removeu = NaturalidadeController.Remover(txtDescricao.Text);
+            if (removeu) ;
+
+
+        }
     }
 }
