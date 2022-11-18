@@ -16,7 +16,8 @@ namespace AppModelo.View.Windows
         /// </summary>
         [STAThread]
         static void Main()
-        {
+        
+       {
 
             //Adicionar manipulador para lidar com a exceção gerada pelos threads principais
             Application.ThreadException +=
@@ -28,7 +29,7 @@ namespace AppModelo.View.Windows
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmNaturalidade());
+            Application.Run(new frmNacionalidades());
 
             Environment.Exit(-1);
 

@@ -29,5 +29,27 @@ namespace AppModelo.View.Windows.Cadastros
 
             }
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var control = new NacionalidadeController();
+            var removeu = control.Delete(txtDescricao.Text);
+            if ((bool)removeu)
+            {
+                MessageBox.Show("Nacionalidade excluída com sucesso!");
+                txtDescricao.Text = string.Empty;
+            }
+            else
+            {
+                MessageBox.Show("Houve um erro ao excluir no banco de dados.");
+            }
+        }
+
+        private void btnAtualizar_Click_1(object sender, EventArgs e)
+        {
+            var id = int.Parse(txtId.Text);
+            var controller = new NacionalidadeController();
+            var descricao = controller.Atualizar(id, txtDescricao.Text);
+        }
     }
 }

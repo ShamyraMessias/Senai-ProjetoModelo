@@ -33,7 +33,7 @@
             this.gvNaturalidade = new System.Windows.Forms.DataGridView();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbldescricao = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.chkStatus = new System.Windows.Forms.CheckBox();
@@ -75,14 +75,14 @@
             this.txtId.Size = new System.Drawing.Size(55, 20);
             this.txtId.TabIndex = 8;
             // 
-            // label2
+            // lbldescricao
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Descrição";
+            this.lbldescricao.AutoSize = true;
+            this.lbldescricao.Location = new System.Drawing.Point(20, 64);
+            this.lbldescricao.Name = "lbldescricao";
+            this.lbldescricao.Size = new System.Drawing.Size(55, 13);
+            this.lbldescricao.TabIndex = 7;
+            this.lbldescricao.Text = "Descrição";
             // 
             // label1
             // 
@@ -127,7 +127,7 @@
             this.btnDelete.TabIndex = 14;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
             // 
             // frmNaturalidade
             // 
@@ -141,7 +141,7 @@
             this.Controls.Add(this.gvNaturalidade);
             this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.txtId);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbldescricao);
             this.Controls.Add(this.label1);
             this.Name = "frmNaturalidade";
             this.Text = "frmNaturalidade";
@@ -159,7 +159,7 @@
         private System.Windows.Forms.DataGridView gvNaturalidade;
         private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbldescricao;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.CheckBox chkStatus;

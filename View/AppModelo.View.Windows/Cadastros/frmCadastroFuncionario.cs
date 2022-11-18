@@ -23,7 +23,7 @@ namespace AppModelo.View.Windows.Cadastros
             cmbNacionalidade.DataSource = _nacionalidadeController.ObterTodasNacionalidades();
             cmbNacionalidade.DisplayMember = "Descricao";
 
-            cmbNaturalidade.DataSource = _naturalidadeController.ObterTodasNaturalidades();
+            cmbNaturalidade.DataSource = _naturalidadeController.ObterTodasNaturalidade();
             cmbNaturalidade.DisplayMember = "Descricao";
 
         }

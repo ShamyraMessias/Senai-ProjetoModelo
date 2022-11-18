@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System.Data;
 using Dapper;
+using System;
 
 namespace AppModelo.Model.Infra.Repositories
 {
@@ -18,13 +19,19 @@ namespace AppModelo.Model.Infra.Repositories
             var resultado = conexaoBd.Execute(sql);
             return resultado > 0;
         }
-        public bool Atualizar() 
+        public bool Atualizar ( int id, string descricao) 
         {
-            return false;
+            var sql = $"UPDATE nacionalidades SET descricao = ('{descricao}') WHERE id = ('{id}')";
+            using IDbConnection conexaoBd = new MySqlConnection(Databases.MySql.ConectionString());
+            var resultado = conexaoBd.Execute(sql);
+            return resultado > 0;
         }
-        public bool Remover() 
+        public bool Delete(string descricao) 
         {
-            return false;
+            var sql = $"DELETE FROM nacionalidades WHERE (descricao) = ('{descricao}')";
+            using IDbConnection conexaoBd = new MySqlConnection(Databases.MySql.ConectionString());
+            var resultado = conexaoBd.Execute(sql);
+            return resultado > 0;
         }
         public IEnumerable<NacionalidadeEntity> ObterTodos()
         {
@@ -41,5 +48,6 @@ namespace AppModelo.Model.Infra.Repositories
             return new NacionalidadeEntity();
         }
 
+      
     }
 }
