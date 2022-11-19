@@ -14,12 +14,6 @@ namespace AppModelo.Controller.Cadastros
             return resposta;
         }
 
-        public static object Remover(string descricao)
-        {
-            var repositorio = new NacionalidadeRepository();
-            var resposta = repositorio.Delete(descricao);
-            return resposta; ;
-        }
 
         public bool Cadastrar(string descricao)
         {
@@ -35,9 +29,11 @@ namespace AppModelo.Controller.Cadastros
             return (List<NacionalidadeEntity>)resposta;
         }
 
-        public object Delete(string text)
+        public object Delete(string descricao)
         {
-            throw new NotImplementedException();
+            var repositorio = new NacionalidadeRepository();
+            var resposta = repositorio.Delete(descricao);
+            return resposta; 
         }
     }
 }

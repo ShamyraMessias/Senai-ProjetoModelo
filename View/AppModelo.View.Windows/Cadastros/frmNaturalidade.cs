@@ -6,9 +6,14 @@ namespace AppModelo.View.Windows.Cadastros
 {
     public partial class frmNaturalidade : Form
     {
+        private NaturalidadeController _naturalidadeController = new NaturalidadeController();
         public frmNaturalidade()
         {
             InitializeComponent();
+            
+            var listaDeNaturalidade = _naturalidadeController.ObterTodasNaturalidade();
+            gvNaturalidade.DataSource = listaDeNaturalidade;
+
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -46,10 +51,21 @@ namespace AppModelo.View.Windows.Cadastros
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtId.Text))
+            {
+                MessageBox.Show("Favor preencher o campo ID.");
+            }
+            
+            else
+            {
+                var id = int.Parse(txtId.Text);
+                var controller = new NaturalidadeController();
+                var descricao = controller.Atualizar(id, txtDescricao.Text);
+            }
+            MessageBox.Show("Nacionalidades Atulizadas com sucesso");
 
-            var id = int.Parse(txtId.Text);
-            var controller = new NaturalidadeController();
-            var descricao = controller.Atualizar(id, txtDescricao.Text);
+            var listaDeNaturalidade = _naturalidadeController.ObterTodasNaturalidade();
+            gvNaturalidade.DataSource = listaDeNaturalidade;
 
         }
 

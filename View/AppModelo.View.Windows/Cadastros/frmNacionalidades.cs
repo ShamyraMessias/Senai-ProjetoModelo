@@ -47,9 +47,22 @@ namespace AppModelo.View.Windows.Cadastros
 
         private void btnAtualizar_Click_1(object sender, EventArgs e)
         {
-            var id = int.Parse(txtId.Text);
-            var controller = new NacionalidadeController();
-            var descricao = controller.Atualizar(id, txtDescricao.Text);
+            if (string.IsNullOrEmpty(txtId.Text))
+            {
+                MessageBox.Show("Favor preencher o campo ID.");
+            }
+            
+            else
+            {
+                var id = int.Parse(txtId.Text);
+                var controller = new NacionalidadeController();
+                var descricao = controller.Atualizar(id, txtDescricao.Text);
+            }
+
+            MessageBox.Show("Nacionalidades Atulizadas com sucesso");
+
+            var listaDeNacionalidades = _nacionalidadeController.ObterTodasNacionalidades();
+            gvNacionalidades.DataSource = listaDeNacionalidades;
         }
     }
 }
