@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AppModelo.Model.Domain.Entities
 {
+    /// <summary>
+    /// instancia a classe FuncionariosEntity, criando todos os parametros para a lista criada no banco de dados
+    /// </summary>
     internal class FuncionariosEntity
     {
         public int Id { get; set; }

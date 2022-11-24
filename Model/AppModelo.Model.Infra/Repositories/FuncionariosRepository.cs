@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace AppModelo.Model.Infra.Repositories
 {
+    /// <summary>
+    /// Intanciando o método FuncionarioRepository, para inserir os dados dos funcionários no banco de dados.
+    /// </summary>
     public class FuncionariosRepository
     {
         public bool Inserir(string nome, DateTime data_nascimento, bool sexo, string email, string telefone, string telefone_contato, string cep, string logradouro, int numero, string complemento, string bairro, string municipio, string uf, int nacionalidades, int naturalidade)

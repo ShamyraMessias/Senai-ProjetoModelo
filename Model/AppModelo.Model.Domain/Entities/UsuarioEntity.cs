@@ -5,7 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AppModelo.Model.Domain.Entities
-{
+{ 
+    /// <summary>
+    /// Instanciando a classe UsuarioEntity,e puxando as entidades do banco de dados.
+    /// </summary>
     public class UsuarioEntity
     {
         public int Id { get; set; }

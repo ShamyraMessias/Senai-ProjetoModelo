@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AppModelo.Model.Domain.Entities
 {
+    /// <summary>
+    /// Instanciando a classe NaturalidadeEntity,e puxando as entidades do banco de dados.
+    /// </summary>
     public class NaturalidadeEntity
     {
         public int Id { get; set; }

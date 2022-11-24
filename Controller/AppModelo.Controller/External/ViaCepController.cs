@@ -5,7 +5,7 @@ namespace AppModelo.Controller.External
 {
     public class ViaCepController
     {
-        //Retorna a classe ViaCepWrapper
+        //Retorna a classe ViaCepWrapper , instancia o método ViaCepService para obter o CEP.
         public ViaCepWrapper Obter(string cep)
         {
             var service = new ViaCepService();

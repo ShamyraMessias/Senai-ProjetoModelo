@@ -1,5 +1,8 @@
 ﻿namespace AppModelo.Model.Domain.Validators
 {
+    /// <summary>
+    /// Instanciando a classe Validadores e validando o CPF para o banco de dados.
+    /// </summary>
     public static partial class Validadores
     {
         public struct Cpf

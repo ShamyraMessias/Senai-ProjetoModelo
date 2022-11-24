@@ -2,6 +2,9 @@
 
 namespace AppModelo.Model.Domain.Validators
 {
+    /// <summary>
+    /// Instanciando a classe validadores e validando o  Email para o banco de dados.
+    /// </summary>
     public static partial class Validadores
     {
         public static bool EmailEValido(string inputEmail)

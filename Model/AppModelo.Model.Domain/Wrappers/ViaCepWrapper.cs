@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace AppModelo.Model.Domain.Wrappers
 {
+    /// <summary>
+    /// Instanciando a classe Validadores e validando o CPF
+    /// Intanciando a classe ViaCepWrapper que puxa a erança da classe EntidadeBase.
+    /// </summary>
     public class ViaCepWrapper : EntidadeBase
     {
         public string Cep { get; set; }

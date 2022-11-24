@@ -11,6 +11,12 @@ namespace AppModelo.Model.Infra.Repositories
     {   
         //CRUD - create - read   - update - delete
         //       insert - select - update - delete  
+      
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="descricao"></param>
+        /// <returns></returns>
         public bool Inserir(string descricao)
         {
             //string interpolation

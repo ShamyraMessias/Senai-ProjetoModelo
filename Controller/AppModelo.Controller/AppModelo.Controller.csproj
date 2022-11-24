@@ -45,7 +45,6 @@
     <Compile Include="Cadastros\FuncionarioController.cs" />
     <Compile Include="Cadastros\NacionalidadeController.cs" />
     <Compile Include="Cadastros\NaturalidadeController.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="External\ViaCepController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seguranca\UsuarioController.cs" />
