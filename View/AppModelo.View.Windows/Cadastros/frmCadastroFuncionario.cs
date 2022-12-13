@@ -13,7 +13,7 @@ namespace AppModelo.View.Windows.Cadastros
         private FuncionarioController _funcionarioController = new FuncionarioController();
         private NacionalidadeController _nacionalidadeController = new NacionalidadeController();
         private NaturalidadeController _naturalidadeController = new NaturalidadeController();
-        private object sexo;
+
 
         public frmCadastroFuncionario()
         {
@@ -22,9 +22,11 @@ namespace AppModelo.View.Windows.Cadastros
 
             cmbNacionalidade.DataSource = _nacionalidadeController.ObterTodasNacionalidades();
             cmbNacionalidade.DisplayMember = "Descricao";
+            cmbNacionalidade.ValueMember = "Id";
 
             cmbNaturalidade.DataSource = _naturalidadeController.ObterTodasNaturalidade();
             cmbNaturalidade.DisplayMember = "Descricao";
+            cmbNaturalidade.ValueMember = "Id";
 
         }
 
@@ -47,9 +49,9 @@ namespace AppModelo.View.Windows.Cadastros
         private void txtNome_Validating(object sender, CancelEventArgs e)
         {
             //primeira regra nome < que 6 letras
-            if(txtNome.Text.Length < 6)
+            if (txtNome.Text.Length < 6)
             {
-                errorProvider.SetError(txtNome,"Digite seu nome completo");
+                errorProvider.SetError(txtNome, "Digite seu nome completo");
                 return;
             }
 
@@ -69,14 +71,14 @@ namespace AppModelo.View.Windows.Cadastros
             }
             errorProvider.Clear();
 
-           
+
         }
 
         private void txtCpf_Validating(object sender, CancelEventArgs e)
         {
             var cpf = txtCpf.Text;
             var cpfEhValido = Validadores.ValidarCPF(cpf);
-            if(cpfEhValido is false)
+            if (cpfEhValido is false)
             {
                 errorProvider.SetError(txtCpf, "CPF Inválido");
                 return;
@@ -97,7 +99,7 @@ namespace AppModelo.View.Windows.Cadastros
         private void cmbNacionalidade_SelectedIndexChanged(object sender, EventArgs e)
         {
             var obterIndexNacionalidade = cmbNacionalidade.SelectedIndex;
-            string Index = cmbNacionalidade.Text;   
+            string Index = cmbNacionalidade.Text;
             MessageBox.Show(Index);
         }
 
@@ -179,7 +181,7 @@ namespace AppModelo.View.Windows.Cadastros
 
         private void txtEmail_Validating(object sender, CancelEventArgs e)
         {
-            var email = txtEmail.Text;  
+            var email = txtEmail.Text;
             var emailEhvalido = Validadores.EmailEValido(email);
 
             if (emailEhvalido is false)
@@ -194,7 +196,7 @@ namespace AppModelo.View.Windows.Cadastros
 
         private void txtDataNascimento_validated(object sender, EventArgs e)
         {
-            var dataNascimento = Convert.ToDateTime (txtDataNascimento.Text);
+            var dataNascimento = Convert.ToDateTime(txtDataNascimento.Text);
             var dataHoje = DateTime.Now;
 
             if (dataNascimento > dataHoje)
@@ -206,19 +208,16 @@ namespace AppModelo.View.Windows.Cadastros
             errorProvider.Clear();
         }
 
-        private void btnCadastrar_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnCadastrar_Click_1(object sender, EventArgs e)
         {
-            DateTime dataNascimento = Convert.ToDateTime(txtDataNascimento.Text);
+            var dataNascimento = Convert.ToDateTime(txtDataNascimento.Text);
             int numero = int.Parse(txtEnderecoNumero.Text);
+            var naturalidade = Convert.ToInt32(cmbNaturalidade.SelectedValue);
+            var nacionalidade = Convert.ToInt32(cmbNacionalidade.SelectedValue);
 
-            var salvou = _funcionarioController.Cadastrar (txtNome.Text, dataNascimento, rbMasculino.Checked, txtEmail.Text, txtTelefone.Text, txtTelefoneContato.Text, txtEnderecoCep.Text, txtEnderecoLogradouro.Text, numero, txtEnderecoComplemento.Text, txtEnderecoBairro.Text, txtEnderecoMunicipio.Text, txtEnderecoUf.Text, 1, 1);
+            var salvou = _funcionarioController.Cadastrar(txtNome.Text, dataNascimento, rbMasculino.Checked, txtCpf.Text, txtEmail.Text, txtTelefone.Text, txtTelefoneContato.Text, txtEnderecoCep.Text, txtEnderecoLogradouro.Text, numero, txtEnderecoComplemento.Text, txtEnderecoBairro.Text, txtEnderecoMunicipio.Text, txtEnderecoUf.Text,nacionalidade,naturalidade);
 
-            if ((bool)salvou)
+            if (salvou)
             {
                 MessageBox.Show("Cadastrado com sucesso");
             }
@@ -226,9 +225,12 @@ namespace AppModelo.View.Windows.Cadastros
             {
                 MessageBox.Show("Erro ao cadastrar usuário");
             }
+
+
         }
     }
-}
+}   
 
-        
-   
+
+
+

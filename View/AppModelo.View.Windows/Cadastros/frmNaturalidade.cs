@@ -84,5 +84,7 @@ namespace AppModelo.View.Windows.Cadastros
                 MessageBox.Show("Houve um erro ao excluir no banco de dados.");
             }
         }
+
+       
     }
 }

@@ -1,4 +1,5 @@
-﻿using AppModelo.Model.Infra.Repositories;
+﻿using AppModelo.Model.Domain.Entities;
+using AppModelo.Model.Infra.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,16 +26,26 @@ namespace AppModelo.Controller.Cadastros
         /// <param name="bairro"></param>
         /// <param name="municipio"></param>
         /// <param name="uf"></param>
-        /// <param name="nacionalidade"></param>
+        /// <param name="nacionalidades"></param>
         /// <param name="naturalidade"></param>
         /// <returns>lista de todos os parametros cadastrados</returns>
-        public bool Cadastrar(string nome, DateTime dataNascimento, bool sexo, string email, string telefone, string telefone_contato, string cep, string logradouro, int numero, string complemento, string bairro, string municipio, string uf, int nacionalidade, int naturalidade)
+        public bool Cadastrar(string nome, DateTime dataNascimento, bool sexo, string cpf, string email, string telefone, string telefone_contato, string cep, string logradouro, int numero, string complemento, string bairro, string municipio, string uf, int nacionalidades, int naturalidade)
         {
-            var repositorio = new FuncionariosRepository();
-            var resposta = repositorio.Inserir(nome, dataNascimento, sexo, email, telefone, telefone_contato, cep, logradouro, numero, complemento, bairro, municipio, uf, nacionalidade , naturalidade);
-            return resposta;
+            if (Cadastrar != null)
+            {
+                var repositorio = new FuncionariosRepository();
+                var resposta = repositorio.Inserir(nome, dataNascimento, sexo, cpf, email, telefone, telefone_contato, cep, logradouro, numero, complemento, bairro, municipio, uf, nacionalidades, naturalidade);
+                return resposta;
+            }
+            throw new NotImplementedException();
+
         }
 
-   
+        public List<FuncionariosEntity> ObterTodosFuncionarios()
+        {
+            var repositorio = new FuncionariosRepository();
+            var resposta = repositorio.ObterTodos();
+            return (List<FuncionariosEntity>)resposta;
+        }
     }
 }

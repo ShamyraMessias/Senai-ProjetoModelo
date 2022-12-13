@@ -33,6 +33,7 @@
             this.nacionalidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.naturalidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.funcionariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarFuncionariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +43,8 @@
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrosToolStripMenuItem,
-            this.funcionariosToolStripMenuItem});
+            this.funcionariosToolStripMenuItem,
+            this.listarFuncionariosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
@@ -81,6 +83,13 @@
             this.funcionariosToolStripMenuItem.Text = "Funcionarios";
             this.funcionariosToolStripMenuItem.Click += new System.EventHandler(this.funcionariosToolStripMenuItem_Click);
             // 
+            // listarFuncionariosToolStripMenuItem
+            // 
+            this.listarFuncionariosToolStripMenuItem.Name = "listarFuncionariosToolStripMenuItem";
+            this.listarFuncionariosToolStripMenuItem.Size = new System.Drawing.Size(184, 29);
+            this.listarFuncionariosToolStripMenuItem.Text = "Listar Funcionarios";
+            this.listarFuncionariosToolStripMenuItem.Click += new System.EventHandler(this.listarFuncionariosToolStripMenuItem_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -89,7 +98,7 @@
             this.ClientSize = new System.Drawing.Size(1200, 623);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.HelpButton = true;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -113,5 +122,6 @@
         private System.Windows.Forms.ToolStripMenuItem nacionalidadesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem naturalidadesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem funcionariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listarFuncionariosToolStripMenuItem;
     }
 }

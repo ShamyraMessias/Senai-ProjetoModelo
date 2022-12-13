@@ -1,4 +1,5 @@
-﻿namespace AppModelo.Model.Infra.Databases
+﻿
+namespace AppModelo.Model.Infra.Databases
 {
     public static class MySql
     {

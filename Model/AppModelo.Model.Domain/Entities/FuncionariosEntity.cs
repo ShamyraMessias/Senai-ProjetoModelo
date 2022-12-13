@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace AppModelo.Model.Domain.Entities
     /// <summary>
     /// instancia a classe FuncionariosEntity, criando todos os parametros para a lista criada no banco de dados
     /// </summary>
-    internal class FuncionariosEntity
+    public class FuncionariosEntity
     {
         public int Id { get; set; }
         public int naturalidade { get; set; }

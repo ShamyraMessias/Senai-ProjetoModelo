@@ -53,6 +53,12 @@
     <Compile Include="Cadastros\frmCadastroFuncionario.Designer.cs">
       <DependentUpon>frmCadastroFuncionario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cadastros\frmListadeFuncionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\frmListadeFuncionarios.Designer.cs">
+      <DependentUpon>frmListadeFuncionarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cadastros\frmNacionalidades.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Cadastros\frmCadastroFuncionario.resx">
       <DependentUpon>frmCadastroFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cadastros\frmListadeFuncionarios.resx">
+      <DependentUpon>frmListadeFuncionarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cadastros\frmNacionalidades.resx">
       <DependentUpon>frmNacionalidades.cs</DependentUpon>

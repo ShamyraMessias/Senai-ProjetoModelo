@@ -39,5 +39,12 @@ namespace AppModelo.View.Windows
             form.MdiParent = this;
             form.Show();
         }
+
+        private void listarFuncionariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new frmListadeFuncionarios();
+            form.MdiParent = this;
+            form.Show();
+        }
     }
 }
